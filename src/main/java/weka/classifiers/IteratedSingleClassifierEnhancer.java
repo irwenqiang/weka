@@ -67,16 +67,17 @@ public abstract class IteratedSingleClassifierEnhancer
    *
    * @return an enumeration of all the available options.
    */
-  public Enumeration listOptions() {
+  @SuppressWarnings("unchecked")
+public Enumeration<Option> listOptions() {
 
-    Vector newVector = new Vector(2);
+    Vector<Option> newVector = new Vector<Option>(2);
 
     newVector.addElement(new Option(
           "\tNumber of iterations.\n"
           + "\t(default 10)",
           "I", 1, "-I <num>"));
 
-    Enumeration enu = super.listOptions();
+    Enumeration<Option> enu = super.listOptions();
     while (enu.hasMoreElements()) {
       newVector.addElement(enu.nextElement());
     }
