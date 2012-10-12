@@ -363,7 +363,7 @@ public class AdditiveRegression
       sum += newData.instance(i).weight() *
 	newData.instance(i).classValue() * newData.instance(i).classValue();
     }
-    if (m_Debug) {
+    if (debug) {
       System.err.println("Sum of squared residuals "
 			 +"(predicting the mean) : " + sum);
     }
@@ -381,7 +381,7 @@ public class AdditiveRegression
 	sum += newData.instance(i).weight() *
 	  newData.instance(i).classValue() * newData.instance(i).classValue();
       }
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Sum of squared residuals : "+sum);
       }
       m_NumIterationsPerformed++;

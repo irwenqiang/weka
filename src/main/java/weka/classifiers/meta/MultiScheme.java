@@ -319,7 +319,7 @@ public class MultiScheme
    */
   public void setDebug(boolean debug) {
 
-    m_Debug = debug;
+    debug = debug;
   }
 
   /**
@@ -327,9 +327,9 @@ public class MultiScheme
    *
    * @return true if debugging output is on
    */
-  public boolean getDebug() {
+  public boolean isDebug() {
 
-    return m_Debug;
+    return debug;
   }
   
   /**
@@ -396,7 +396,7 @@ public class MultiScheme
       }
 
       double error = evaluation.errorRate();
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Error rate: " + Utils.doubleToString(error, 6, 4)
 			   + " for classifier "
 			   + currentClassifier.getClass().getName());

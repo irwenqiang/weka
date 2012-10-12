@@ -448,7 +448,7 @@ public class LinearRegression extends AbstractClassifier implements OptionHandle
     result.add("-S");
     result.add("" + getAttributeSelectionMethod().getSelectedTag().getID());
     
-    if (getDebug())
+    if (isDebug())
       result.add("-D");
     
     if (!getEliminateColinearAttributes())
@@ -645,7 +645,7 @@ public class LinearRegression extends AbstractClassifier implements OptionHandle
     }
     if (maxAttr >= 0) {
       selectedAttributes[maxAttr] = false;
-      if (m_Debug) {
+      if (debug) {
 	System.out.println("Deselected colinear attribute:" + (maxAttr + 1)
 			   + " with standardised coefficient: " + maxSC);
       }
@@ -666,7 +666,7 @@ public class LinearRegression extends AbstractClassifier implements OptionHandle
     // the calculation of the Akaike criterion. 
     int numInstances = m_TransformedData.numInstances();
 
-    if (m_Debug) {
+    if (debug) {
       System.out.println((new Instances(m_TransformedData, 0)).toString());
     }
 
@@ -687,7 +687,7 @@ public class LinearRegression extends AbstractClassifier implements OptionHandle
 
     double fullMSE = calculateSE(m_SelectedAttributes, m_Coefficients);
     double akaike = (numInstances - numAttributes) + 2 * numAttributes;
-    if (m_Debug) {
+    if (debug) {
       System.out.println("Initial Akaike value: " + akaike);
     }
 
@@ -713,13 +713,13 @@ public class LinearRegression extends AbstractClassifier implements OptionHandle
 	    double currentAkaike = currentMSE / fullMSE 
 	      * (numInstances - numAttributes)
 	      + 2 * currentNumAttributes;
-	    if (m_Debug) {
+	    if (debug) {
 	      System.out.println("(akaike: " + currentAkaike);
 	    }
 
 	    // If it is better than the current best
 	    if (currentAkaike < akaike) {
-	      if (m_Debug) {
+	      if (debug) {
 		System.err.println("Removing attribute " + (i + 1)
 				   + " improved Akaike: " + currentAkaike);
 	      }
@@ -767,13 +767,13 @@ public class LinearRegression extends AbstractClassifier implements OptionHandle
 	  double currentAkaike = currentMSE / fullMSE 
 	    * (numInstances - numAttributes)
 	    + 2 * currentNumAttributes;
-	  if (m_Debug) {
+	  if (debug) {
 	    System.out.println("(akaike: " + currentAkaike);
 	  }
 
 	  // If it is better than the current best
 	  if (currentAkaike < akaike) {
-	    if (m_Debug) {
+	    if (debug) {
 	      System.err.println("Removing attribute " + (minAttr + 1)
 				 + " improved Akaike: " + currentAkaike);
 	    }
@@ -862,7 +862,7 @@ public class LinearRegression extends AbstractClassifier implements OptionHandle
   protected double[] doRegression(boolean[] selectedAttributes) 
   throws Exception {
 
-    if (m_Debug) {
+    if (debug) {
       System.out.print("doRegression(");
       for (int i = 0; i < selectedAttributes.length; i++) {
 	System.out.print(" " + selectedAttributes[i]);

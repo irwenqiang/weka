@@ -586,7 +586,7 @@ public class JRip
    * 
    * @return whether debug information is output to the console
    */
-  public boolean getDebug(){
+  public boolean isDebug(){
     return m_Debug;
   }
 

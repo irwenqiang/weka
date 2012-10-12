@@ -184,7 +184,7 @@ public class TabuSearch
 				copyParentSets(bestBayesNet, bayesNet);
 			}
 
-			if (bayesNet.getDebug()) {
+			if (bayesNet.isDebug()) {
 				printTabuList();
 			}
         }

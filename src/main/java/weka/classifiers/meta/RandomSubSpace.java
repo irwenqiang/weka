@@ -383,7 +383,7 @@ public class RandomSubSpace
     }
     sb.append(classIndex);
     
-    if (getDebug())
+    if (isDebug())
       System.out.println("subSPACE = " + sb);
 
     return sb.toString();

@@ -228,7 +228,7 @@ public class AdaBoostM1
 	break;
       }
     }
-    if (m_Debug) {
+    if (debug) {
       System.err.println("Selected " + trainData.numInstances()
 			 + " out of " + numInstances);
     }
@@ -495,7 +495,7 @@ public class AdaBoostM1
     // Do boostrap iterations
     for (m_NumIterationsPerformed = 0; m_NumIterationsPerformed < m_Classifiers.length; 
 	 m_NumIterationsPerformed++) {
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Training classifier " + (m_NumIterationsPerformed + 1));
       }
 
@@ -537,7 +537,7 @@ public class AdaBoostM1
       // Determine the weight to assign to this model
       m_Betas[m_NumIterationsPerformed] = Math.log((1 - epsilon) / epsilon);
       reweight = (1 - epsilon) / epsilon;
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("\terror rate = " + epsilon
 			   +"  beta = " + m_Betas[m_NumIterationsPerformed]);
       }
@@ -606,7 +606,7 @@ public class AdaBoostM1
     // Do boostrap iterations
     for (m_NumIterationsPerformed = 0; m_NumIterationsPerformed < m_Classifiers.length; 
 	 m_NumIterationsPerformed++) {
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Training classifier " + (m_NumIterationsPerformed + 1));
       }
       // Select instances to train the classifier on
@@ -637,7 +637,7 @@ public class AdaBoostM1
       // Determine the weight to assign to this model
       m_Betas[m_NumIterationsPerformed] = Math.log((1 - epsilon) / epsilon);
       reweight = (1 - epsilon) / epsilon;
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("\terror rate = " + epsilon
 			   +"  beta = " + m_Betas[m_NumIterationsPerformed]);
       }

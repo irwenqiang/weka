@@ -270,7 +270,7 @@ public class LogitBoost
 	break;
       }
     }
-    if (m_Debug) {
+    if (debug) {
       System.err.println("Selected " + trainData.numInstances()
 			 + " out of " + numInstances);
     }
@@ -673,7 +673,7 @@ public class LogitBoost
     // can classifier handle the data?
     getCapabilities().testWithFail(data);
 
-    if (m_Debug) {
+    if (debug) {
       System.err.println("Creating copy of the training data");
     }
 
@@ -698,7 +698,7 @@ public class LogitBoost
     m_ClassAttribute = data.classAttribute();
 
     // Create the base classifiers
-    if (m_Debug) {
+    if (debug) {
       System.err.println("Creating base classifiers");
     }
     m_Classifiers = new Classifier [m_NumClasses][];
@@ -711,7 +711,7 @@ public class LogitBoost
     // using cross-validation?
     int bestNumIterations = getNumIterations();
     if (m_NumFolds > 1) {
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Processing first fold.");
       }
 
@@ -772,7 +772,7 @@ public class LogitBoost
 	  bestNumIterations = j;
 	}
       }
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Best result for " + 
 			   bestNumIterations + " iterations: " +
 			   bestResult);
@@ -801,7 +801,7 @@ public class LogitBoost
     double[][] probs = initialProbs(numInstances);
     double logLikelihood = logLikelihood(trainYs, probs);
     m_NumGenerated = 0;
-    if (m_Debug) {
+    if (debug) {
       System.err.println("Avg. log-likelihood: " + logLikelihood);
     }
     double sumOfWeights = data.sumOfWeights();
@@ -809,7 +809,7 @@ public class LogitBoost
       double previousLoglikelihood = logLikelihood;
       performIteration(trainYs, trainFs, probs, data, sumOfWeights);
       logLikelihood = logLikelihood(trainYs, probs);
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Avg. log-likelihood: " + logLikelihood);
       }
       if (Math.abs(previousLoglikelihood - logLikelihood) < m_Precision) {
@@ -872,13 +872,13 @@ public class LogitBoost
 				Instances data,
 				double origSumOfWeights) throws Exception {
 
-    if (m_Debug) {
+    if (debug) {
       System.err.println("Training classifier " + (m_NumGenerated + 1));
     }
 
     // Build the new models
     for (int j = 0; j < m_NumClasses; j++) {
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("\t...for class " + (j + 1)
 			   + " (" + m_ClassAttribute.name() 
 			   + "=" + m_ClassAttribute.value(j) + ")");

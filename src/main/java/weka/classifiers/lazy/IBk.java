@@ -926,7 +926,7 @@ public class IBk
       Instances neighbours;
       double[] origDistances, convertedDistances;
       for(int i = 0; i < m_Train.numInstances(); i++) {
-	if (m_Debug && (i % 50 == 0)) {
+	if (debug && (i % 50 == 0)) {
 	  System.err.print("Cross validating "
 			   + i + "/" + m_Train.numInstances() + "\r");
 	}
@@ -960,12 +960,12 @@ public class IBk
 
       // Display the results of the cross-validation
       for(int i = 0; i < m_kNNUpper; i++) {
-	if (m_Debug) {
+	if (debug) {
 	  System.err.print("Hold-one-out performance of " + (i + 1)
 			   + " neighbors " );
 	}
 	if (m_Train.classAttribute().isNumeric()) {
-	  if (m_Debug) {
+	  if (debug) {
 	    if (m_MeanSquared) {
 	      System.err.println("(RMSE) = "
 				 + Math.sqrt(performanceStatsSq[i]
@@ -977,7 +977,7 @@ public class IBk
 	    }
 	  }
 	} else {
-	  if (m_Debug) {
+	  if (debug) {
 	    System.err.println("(%ERR) = "
 			       + 100.0 * performanceStats[i]
 			       / m_Train.numInstances());
@@ -1002,7 +1002,7 @@ public class IBk
 	}
       }
       m_kNN = bestK;
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Selected k = " + bestK);
       }
       

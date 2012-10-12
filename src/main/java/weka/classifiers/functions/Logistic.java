@@ -288,7 +288,7 @@ public class Logistic extends AbstractClassifier
     String [] options = new String [6];
     int current = 0;
 	
-    if (getDebug()) 
+    if (isDebug()) 
       options[current++] = "-D";
     if (getUseConjugateGradientDescent()) {
       options[current++] = "-C";
@@ -325,7 +325,7 @@ public class Logistic extends AbstractClassifier
    *
    * @return true if debugging output will be printed
    */
-  public boolean getDebug() {
+  public boolean isDebug() {
     return m_Debug;
   }      
    

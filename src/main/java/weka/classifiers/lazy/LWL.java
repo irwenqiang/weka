@@ -590,7 +590,7 @@ public class LWL
     Instances neighbours = m_NNSearch.kNearestNeighbours(instance, k);
     double distances[] = m_NNSearch.getDistances();
 
-    if (m_Debug) {
+    if (debug) {
       System.out.println("Test Instance: "+instance);
       System.out.println("For "+k+" kept " + neighbours.numInstances() + " out of " + 
                          m_Train.numInstances() + " instances.");
@@ -600,7 +600,7 @@ public class LWL
     if(k>distances.length)
       k = distances.length;
 
-    if (m_Debug) {
+    if (debug) {
       System.out.println("Instance Distances");
       for (int i = 0; i < distances.length; i++) {
 	System.out.println("" + distances[i]);
@@ -646,7 +646,7 @@ public class LWL
       }
     }
 
-    if (m_Debug) {
+    if (debug) {
       System.out.println("Instance Weights");
       for (int i = 0; i < distances.length; i++) {
 	System.out.println("" + distances[i]);
@@ -673,7 +673,7 @@ public class LWL
     // Create a weighted classifier
     m_Classifier.buildClassifier(neighbours);
 
-    if (m_Debug) {
+    if (debug) {
       System.out.println("Classifying test instance: " + instance);
       System.out.println("Built base classifier:\n" 
 			 + m_Classifier.toString());

@@ -167,7 +167,7 @@ public abstract class ParallelMultipleClassifiersCombiner extends
     }
 
     if (m_numExecutionSlots > 1) {
-      if (m_Debug) {
+      if (debug) {
         System.out.println("Starting executor pool with " + m_numExecutionSlots
             + " slots...");
       }
@@ -217,11 +217,11 @@ public abstract class ParallelMultipleClassifiersCombiner extends
         Runnable newTask = new Runnable() {
           public void run() {
             try {
-              if (m_Debug) {
+              if (debug) {
                 System.out.println("Training classifier (" + (iteration +1) + ")");
               }
               currentClassifier.buildClassifier(data);
-              if (m_Debug) {
+              if (debug) {
                 System.out.println("Finished classifier (" + (iteration +1) + ")");
               }
               completedClassifier(iteration, true);
@@ -256,7 +256,7 @@ public abstract class ParallelMultipleClassifiersCombiner extends
 
     if (!success) {
       m_failed++;
-      if (m_Debug) {
+      if (debug) {
         System.err.println("Iteration " + iteration + " failed!");
       }
     } else {
@@ -265,7 +265,7 @@ public abstract class ParallelMultipleClassifiersCombiner extends
 
     if (m_completed + m_failed == m_Classifiers.length) {
       if (m_failed > 0) {
-        if (m_Debug) {
+        if (debug) {
           System.err.println("Problem building classifiers - some iterations failed.");
         }
       }

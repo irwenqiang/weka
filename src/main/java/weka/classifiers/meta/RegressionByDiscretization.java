@@ -360,7 +360,7 @@ public class RegressionByDiscretization
       }
     }
 
-    if (m_Debug) {
+    if (debug) {
       System.out.println("Bin Means");
       System.out.println("==========");
       for (int i = 0; i < m_ClassMeans.length; i++) {

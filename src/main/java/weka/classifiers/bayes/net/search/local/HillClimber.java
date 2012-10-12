@@ -312,20 +312,20 @@ public class HillClimber
 		switch (oOperation.m_nOperation) {
 			case Operation.OPERATION_ADD:
 				applyArcAddition(bayesNet, oOperation.m_nHead, oOperation.m_nTail, instances);
-				if (bayesNet.getDebug()) {
+				if (bayesNet.isDebug()) {
 					System.out.print("Add " + oOperation.m_nHead + " -> " + oOperation.m_nTail);
 				}
 				break;
 			case Operation.OPERATION_DEL:
 				applyArcDeletion(bayesNet, oOperation.m_nHead, oOperation.m_nTail, instances);
-				if (bayesNet.getDebug()) {
+				if (bayesNet.isDebug()) {
 					System.out.print("Del " + oOperation.m_nHead + " -> " + oOperation.m_nTail);
 				}
 				break;
 			case Operation.OPERATION_REVERSE:
 				applyArcDeletion(bayesNet, oOperation.m_nHead, oOperation.m_nTail, instances);
 				applyArcAddition(bayesNet, oOperation.m_nTail, oOperation.m_nHead, instances);
-				if (bayesNet.getDebug()) {
+				if (bayesNet.isDebug()) {
 					System.out.print("Rev " + oOperation.m_nHead+ " -> " + oOperation.m_nTail);
 				}
 				break;

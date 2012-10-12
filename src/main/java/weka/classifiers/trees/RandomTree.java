@@ -574,7 +574,7 @@ WeightedInstancesHandler, Randomizable, Drawable {
     }
 
     // Build tree 
-    buildTree(train, classProbs, new Instances(data, 0), m_MinNum, m_Debug, attIndicesWindow, 
+    buildTree(train, classProbs, new Instances(data, 0), m_MinNum, debug, attIndicesWindow, 
               rand, 0, getAllowUnclassifiedInstances());
       
     // Backfit if required
@@ -993,7 +993,7 @@ WeightedInstancesHandler, Randomizable, Drawable {
 
     // Store structure of dataset, set minimum number of instances
     m_Info = header;
-    m_Debug = debug;
+    debug = debug;
     m_MinNum = minNum;
     m_AllowUnclassifiedInstances = allow;
 
@@ -1064,7 +1064,7 @@ WeightedInstancesHandler, Randomizable, Drawable {
         m_Successors[i] = new RandomTree();
         m_Successors[i].setKValue(m_KValue);
         m_Successors[i].setMaxDepth(getMaxDepth());
-        m_Successors[i].buildTree(subsets[i], distribution[i], header, m_MinNum, m_Debug,
+        m_Successors[i].buildTree(subsets[i], distribution[i], header, m_MinNum, debug,
                                   attIndicesWindow, random, depth + 1, allow);
       }
 

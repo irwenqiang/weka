@@ -569,6 +569,7 @@
          <include name="**/*.cup"/>
          <include name="**/*.flex"/>
          <include name="**/*.jflex"/>
+       	 <include name="**/*.lombok"/>
          <include name="**/*.properties"/>
          <include name="**/*.default"/>
        </fileset>
@@ -768,6 +769,7 @@
       <include name="src/**/*.cup"/>
       <include name="src/**/*.flex"/>
       <include name="src/**/*.jflex"/>
+      <inlcude name="src/**/*.lombok"/>
       <include name="src/**/*.properties"/>
       <include name="src/**/*.default"/>
       <include name="src/**/*.cost"/>

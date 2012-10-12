@@ -357,7 +357,7 @@ public class CVParameterSelection
 
       // Set the classifier options
       String [] options = createOptions();
-      if (m_Debug) {
+      if (debug) {
 	System.err.print("Setting options for " 
 			 + m_Classifier.getClass().getName() + ":");
 	for (int i = 0; i < options.length; i++) {
@@ -377,7 +377,7 @@ public class CVParameterSelection
 	evaluation.evaluateModel(m_Classifier, test);
       }
       double error = evaluation.errorRate();
-      if (m_Debug) {
+      if (debug) {
 	System.err.println("Cross-validated error rate: " 
 			   + Utils.doubleToString(error, 6, 4));
       }

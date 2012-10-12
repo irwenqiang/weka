@@ -211,7 +211,7 @@ public abstract class ParallelIteratedSingleClassifierEnhancer extends
       if (m_numExecutionSlots > 1) {
         final Classifier currentClassifier = m_Classifiers[i];
         final int iteration = i;
-        if (m_Debug) {
+        if (debug) {
           System.out.print("Training classifier (" + (i +1) + ")");
         }
         Runnable newTask = new Runnable() {
@@ -250,7 +250,7 @@ public abstract class ParallelIteratedSingleClassifierEnhancer extends
 
     if (!success) {
       m_failed++;
-      if (m_Debug) {
+      if (debug) {
         System.err.println("Iteration " + iteration + " failed!");
       }
     } else {
@@ -259,7 +259,7 @@ public abstract class ParallelIteratedSingleClassifierEnhancer extends
 
     if (m_completed + m_failed == m_Classifiers.length) {
       if (m_failed > 0) {
-        if (m_Debug) {
+        if (debug) {
           System.err.println("Problem building classifiers - some iterations failed.");
         }
       }
